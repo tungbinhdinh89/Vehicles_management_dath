@@ -1,0 +1,10 @@
+{
+  "description": "Manage personal vehicles efficiently with features for tracking fuel costs, repairs, maintenance schedules, and reminders tailored for individual users.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

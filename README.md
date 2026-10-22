@@ -1,1 +1,61 @@
-# repo-template
+# VehicleCare
+
+Frontend prototype quản lý xe cá nhân bằng tiếng Việt, xây dựng với React 19,
+TypeScript, Vite, Material UI Community + Icons, token Astra, React Router Data
+Mode, TanStack Query, React Hook Form + Zod và Chart.js.
+
+## Trải nghiệm
+
+Trang tổng quan hiển thị dữ liệu minh họa. Chọn **Đăng nhập demo** để chỉnh sửa:
+
+| Tài khoản | Email |
+| --- | --- |
+| Nguyễn Minh Anh | minhanh@vehiclecare.vn |
+| Trần Hoàng Nam | hoangnam@vehiclecare.vn |
+
+Mật khẩu dùng chung: `VehicleCare@123` (chỉ là thông tin demo, không phải bí mật).
+
+- Hai tài khoản có dữ liệu nghiệp vụ tách biệt.
+- Dữ liệu và phiên đăng nhập chỉ ở trong bộ nhớ; tải lại trang mất phiên và mọi
+  thay đổi. Không dùng localStorage, sessionStorage, database, JWT hay backend.
+- Đăng xuất không xóa dữ liệu trong bộ nhớ của tab; đăng nhập lại cùng tài khoản
+  trong tab đó vẫn thấy thay đổi cho đến khi tải lại trang.
+- Nhắc bảo dưỡng chỉ hiển thị trong ứng dụng khi web đang mở.
+- Định dạng VNĐ, km, lít, dd/MM/yyyy; múi giờ Asia/Ho_Chi_Minh.
+
+## Nghiệp vụ
+
+- Quản lý nhiều ô tô/xe máy, ODO ban đầu và lịch sử ODO thủ công.
+- Nhập, sửa, xóa nhiên liệu, dịch vụ và ODO; kiểm tra ODO với ngày trước/sau.
+  Trong một ngày có thể có nhiều bản ghi với các ODO khác nhau.
+- ODO hiện tại, báo cáo và chi phí được tính từ cùng một tập lịch sử.
+- Kế hoạch đến hạn theo ngày hoặc km, tùy điều kiện nào đến trước.
+- Hoàn tất kế hoạch bằng một dịch vụ có chi phí. Dịch vụ được liên kết với kế
+  hoạch; không tạo thêm một khoản chi phí riêng.
+- Kỳ kế tiếp được tính từ dịch vụ liên kết gần nhất. Sửa/xóa dịch vụ tự động
+  tính lại kế hoạch; lịch cuối tháng được chặn về ngày hợp lệ cuối cùng.
+- Lọc lịch sử, xem biểu đồ, xuất CSV theo bộ lọc, sửa hồ sơ và cấu hình nhắc nhở.
+
+## Cấu trúc chính
+
+- `src/data.ts`: mô hình, mock API Promise và quy tắc nghiệp vụ.
+- `src/store.tsx`: phiên trong bộ nhớ, TanStack Query và thao tác dùng chung.
+- `src/app/routes.tsx`: cấu hình React Router.
+- `src/Layout.tsx`: điều hướng desktop/mobile và khung ứng dụng.
+- `src/pages.tsx`: các màn hình.
+- `src/Dialogs.tsx`: biểu mẫu có validation và xác nhận xóa.
+- `src/components.tsx`: biểu đồ, bảng lịch sử và component dùng chung.
+- `src/index.css`: phông chữ tự lưu trữ, token Astra tùy chỉnh navy/xanh dương.
+- `tests/data.test.ts`: kiểm thử các quy tắc nghiệp vụ.
+
+## Kiểm tra
+
+```sh
+pnpm format src tests
+pnpm exec tsc --noEmit
+pnpm test
+pnpm build
+```
+
+Server phát triển trong Figma Make đã được môi trường chạy sẵn. Không cần khởi
+động thêm server. Nguồn và giấy phép tài nguyên tại `public/ASSET-CREDITS.md`.
