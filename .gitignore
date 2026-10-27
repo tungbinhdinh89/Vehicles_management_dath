@@ -19,3 +19,10 @@ logs/
 # beside it.
 /.plugins/
 /.opencode-skills/
+
+
+/stephen-skills
+/.figma
+/.figaro
+/guidelines
+/node_modules

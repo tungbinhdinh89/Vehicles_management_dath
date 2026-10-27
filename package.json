@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "test": "node --experimental-strip-types --test tests/data.test.ts",
-    "preview": "vite preview",
-    "format": "oxfmt"
+    "dev": "vite --config vite.config.ts",
+    "build": "vite build --config vite.config.ts",
+    "test": "node --experimental-strip-types --test fe/tests/data.test.ts",
+    "preview": "vite preview --config vite.config.ts",
+    "format": "oxfmt fe/src fe/tests"
   },
   "dependencies": {
     "@figma/astraui": "1.0.0",

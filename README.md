@@ -1,5 +1,27 @@
 # VehicleCare
 
+## Kiến trúc thư mục
+
+Repository được tổ chức theo ranh giới triển khai và hướng tới Clean
+Architecture:
+
+```text
+fe/                  # React + Vite frontend
+  src/
+  public/
+  tests/
+be/                  # ASP.NET Core Web API (sẽ triển khai sau)
+  src/
+  tests/
+infra/               # Docker, PostgreSQL và cấu hình triển khai NAS (sẽ triển khai sau)
+.github/workflows/   # GitHub Actions (sẽ triển khai sau)
+```
+
+Hiện tại chỉ `fe/` có mã nguồn chạy được. `be/` và `infra/` là các boundary
+được chuẩn bị để không trộn mã ứng dụng với cấu hình hạ tầng. PostgreSQL dự kiến
+chạy trong container Docker trên Synology NAS; backend ASP.NET Core API sẽ được
+đặt trong `be/` và các workflow CI/CD sẽ đặt trong `.github/workflows/`.
+
 Frontend prototype quản lý xe cá nhân bằng tiếng Việt, xây dựng với React 19,
 TypeScript, Vite, Material UI Community + Icons, token Astra, React Router Data
 Mode, TanStack Query, React Hook Form + Zod và Chart.js.
@@ -38,24 +60,24 @@ Mật khẩu dùng chung: `VehicleCare@123` (chỉ là thông tin demo, không p
 
 ## Cấu trúc chính
 
-- `src/data.ts`: mô hình, mock API Promise và quy tắc nghiệp vụ.
-- `src/store.tsx`: phiên trong bộ nhớ, TanStack Query và thao tác dùng chung.
-- `src/app/routes.tsx`: cấu hình React Router.
-- `src/Layout.tsx`: điều hướng desktop/mobile và khung ứng dụng.
-- `src/pages.tsx`: các màn hình.
-- `src/Dialogs.tsx`: biểu mẫu có validation và xác nhận xóa.
-- `src/components.tsx`: biểu đồ, bảng lịch sử và component dùng chung.
-- `src/index.css`: phông chữ tự lưu trữ, token Astra tùy chỉnh navy/xanh dương.
-- `tests/data.test.ts`: kiểm thử các quy tắc nghiệp vụ.
+- `fe/src/data.ts`: mô hình, mock API Promise và quy tắc nghiệp vụ.
+- `fe/src/store.tsx`: phiên trong bộ nhớ, TanStack Query và thao tác dùng chung.
+- `fe/src/app/routes.tsx`: cấu hình React Router.
+- `fe/src/Layout.tsx`: điều hướng desktop/mobile và khung ứng dụng.
+- `fe/src/pages.tsx`: các màn hình.
+- `fe/src/Dialogs.tsx`: biểu mẫu có validation và xác nhận xóa.
+- `fe/src/components.tsx`: biểu đồ, bảng lịch sử và component dùng chung.
+- `fe/src/index.css`: phông chữ tự lưu trữ, token Astra tùy chỉnh navy/xanh dương.
+- `fe/tests/data.test.ts`: kiểm thử các quy tắc nghiệp vụ.
 
 ## Kiểm tra
 
 ```sh
-pnpm format src tests
+pnpm format fe/src fe/tests
 pnpm exec tsc --noEmit
 pnpm test
 pnpm build
 ```
 
 Server phát triển trong Figma Make đã được môi trường chạy sẵn. Không cần khởi
-động thêm server. Nguồn và giấy phép tài nguyên tại `public/ASSET-CREDITS.md`.
+động thêm server. Nguồn và giấy phép tài nguyên tại `fe/public/ASSET-CREDITS.md`.
