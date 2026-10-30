@@ -1,5 +1,10 @@
 # VehicleCare — Quy tắc kỹ thuật và nghiệp vụ
 
+> Backend đã được chọn là ASP.NET Core 10 + PostgreSQL theo yêu cầu người dùng.
+> Hướng dẫn backend cập nhật ở [doc/.be/README.md](doc/.be/README.md).
+> Đăng ký thật và archive đã được chốt trong thiết kế backend; chưa có API nghiệp vụ.
+> Các ghi chú chưa chọn công nghệ/chưa chốt phạm vi bên dưới là trạng thái prototype trước quyết định này.
+
 Đọc cùng [sumary.md](./sumary.md) và [skill.md](./skill.md).
 Tài liệu này bổ sung quy tắc riêng của VehicleCare, không thay thế `AGENTS.md`
 hay chỉ dẫn của môi trường Make. Nếu có mâu thuẫn ảnh hưởng đến sản phẩm, nêu

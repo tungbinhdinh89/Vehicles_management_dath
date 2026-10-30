@@ -1,5 +1,9 @@
 # VehicleCare — Tổng quan để tiếp quản dự án
 
+> Cập nhật backend 2026-10-30: đã tạo nền tảng ASP.NET Core 10/EF Core/PostgreSQL.
+> Đọc [doc/.be/README.md](doc/.be/README.md) để biết hiện trạng backend và kết quả kiểm chứng.
+> Phần “không backend/database” bên dưới mô tả frontend prototype ban đầu; frontend hiện vẫn dùng mock, chưa tích hợp API nghiệp vụ.
+
 > Tên file `sumary.md` được giữ đúng theo yêu cầu.
 > Tài liệu mô tả mã nguồn hiện tại; phần chưa triển khai luôn được đánh dấu.
 > Đọc tiếp [rules.md](./rules.md) để biết ràng buộc và [skill.md](./skill.md)

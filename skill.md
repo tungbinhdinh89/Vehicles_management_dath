@@ -1,5 +1,9 @@
 # VehicleCare — Quy trình phát triển và lộ trình backend
 
+> Quyết định backend mới: ASP.NET Core 10 + PostgreSQL, Clean Architecture monolith.
+> Nền tảng đã được triển khai; contract/flow/trạng thái hiện tại ở [doc/.be/README.md](doc/.be/README.md).
+> Phần B dưới đây là đề xuất lịch sử; ưu tiên bộ `.be` khi làm backend.
+
 Tài liệu thao tác cho agent. Đọc [sumary.md](./sumary.md) để biết cấu trúc và
 [rules.md](./rules.md) trước khi triển khai.
 

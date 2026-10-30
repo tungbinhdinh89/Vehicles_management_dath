@@ -1,7 +1,7 @@
 # Backend
 
-Backend sẽ dùng ASP.NET Core Web API và được triển khai độc lập với frontend.
-Khi bắt đầu triển khai, giữ ranh giới Clean Architecture:
+Backend dùng ASP.NET Core 10 Web API và được triển khai độc lập với frontend,
+theo ranh giới Clean Architecture:
 
 ```text
 src/
@@ -14,4 +14,17 @@ tests/
   VehicleCare.IntegrationTests/
 ```
 
-Chưa tạo project hoặc kết nối database theo phạm vi hiện tại.
+Nền tảng backend đã được tạo. Bắt đầu tại [hướng dẫn backend](../doc/.be/README.md)
+và [hướng dẫn agent](AGENTS.md). API nghiệp vụ chưa triển khai; frontend vẫn là mock.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 restore
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 build
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 test
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 check
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 migrate
+powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 run
+```
+
+SDK .NET 10; copy `.env.example` thành `.env` và điền credential cục bộ.
+Scalar: `http://localhost:5080/scalar/v1`; health: `/health/live`, `/health/ready`.

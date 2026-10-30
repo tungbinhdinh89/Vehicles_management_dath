@@ -1,5 +1,10 @@
 # VehicleCare
 
+Backend foundation đã có tại `be/`: ASP.NET Core 10, Clean Architecture, EF Core/PostgreSQL và Scalar.
+Xem [hướng dẫn backend](doc/.be/README.md) và [kết quả kiểm chứng](doc/.be/testing.md).
+API nghiệp vụ/xác thực và tích hợp frontend chưa triển khai; frontend vẫn là prototype trong bộ nhớ.
+Các mô tả backend “sẽ triển khai” bên dưới là quy hoạch ban đầu; trạng thái backend hiện tại nằm trong bộ `doc/.be/`.
+
 ## Kiến trúc thư mục
 
 Repository được tổ chức theo ranh giới triển khai và hướng tới Clean
@@ -10,17 +15,16 @@ fe/                  # React + Vite frontend
   src/
   public/
   tests/
-be/                  # ASP.NET Core Web API (sẽ triển khai sau)
+be/                  # ASP.NET Core 10 API foundation, entities và migrations
   src/
   tests/
 infra/               # Docker, PostgreSQL và cấu hình triển khai NAS (sẽ triển khai sau)
 .github/workflows/   # GitHub Actions (sẽ triển khai sau)
 ```
 
-Hiện tại chỉ `fe/` có mã nguồn chạy được. `be/` và `infra/` là các boundary
-được chuẩn bị để không trộn mã ứng dụng với cấu hình hạ tầng. PostgreSQL dự kiến
-chạy trong container Docker trên Synology NAS; backend ASP.NET Core API sẽ được
-đặt trong `be/` và các workflow CI/CD sẽ đặt trong `.github/workflows/`.
+`fe/` chứa frontend prototype; `be/` chứa nền tảng API chạy được cùng entity/migration.
+PostgreSQL chạy trong Docker trên NAS; database `vehiclecare` đã được kết nối và migrate.
+`infra/` dành cho cấu hình triển khai sau này; chưa tạo workflow CI/CD.
 
 Frontend prototype quản lý xe cá nhân bằng tiếng Việt, xây dựng với React 19,
 TypeScript, Vite, Material UI Community + Icons, token Astra, React Router Data

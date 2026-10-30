@@ -1,5 +1,11 @@
 # figma-make-app
 
+## Backend work
+
+For any change under `be/`, read `be/AGENTS.md` and `doc/.be/README.md` first.
+Update the relevant backend documentation and `doc/.be/changelog.md` with every backend change.
+Frontend scaffold instructions below apply to frontend work only; actual frontend sources are under `fe/`.
+
 React + Vite + Tailwind CSS project running inside Figma Make.
 
 ## Development Server
