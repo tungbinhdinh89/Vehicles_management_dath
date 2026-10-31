@@ -1,6 +1,8 @@
 # Flow code tính năng
 
-Các sơ đồ backend dưới đây là thiết kế, chưa có business HTTP endpoints. Domain ODO/plan đã có code.
+Các sơ đồ backend dưới đây phân biệt phần đã triển khai với phần thiết kế.
+Domain ODO/plan đã có code; nhóm auth/session đã có HTTP endpoints, business
+HTTP endpoints còn lại chưa triển khai.
 Nguồn frontend hiện tại: `fe/src/store.tsx`, `data.ts`, `Dialogs.tsx`, `pages.tsx`.
 
 ## Hiện tại và đích
@@ -46,6 +48,12 @@ sequenceDiagram
 Rollback toàn bộ khi bất kỳ bước nào lỗi; không xử lý ODO bằng snapshot stale ngoài transaction.
 
 ## FR-01: Tài khoản và phiên
+
+Đã triển khai `GET /api/v1/auth/csrf`, register, login, me và logout. Register
+tạo Identity user, Account và UserSettings atomically nhưng không tự đăng nhập.
+Login tạo AuthSession 8 giờ; cookie HttpOnly được kiểm tra session server-side
+ở mỗi request. Logout kiểm tra CSRF, revoke session và xóa cookie. Rate limit,
+persistent key ring cho multi-instance, đổi/reset password vẫn chưa triển khai.
 
 ```mermaid
 flowchart TD

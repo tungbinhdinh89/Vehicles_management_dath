@@ -1,5 +1,13 @@
 # Backend changelog
 
+## 2026-10-31 — Auth/session API
+
+- Đăng ký tài khoản atomically với Identity user, Account và UserSettings mặc định.
+- Thêm login/logout/me và CSRF token endpoint dưới `/api/v1/auth`.
+- Cookie HttpOnly, SameSite=Lax, session server-side 8 giờ; mỗi request kiểm tra revoke/expiry.
+- Cấu hình Identity password policy và lockout 5 lần trong 15 phút; không tự login sau đăng ký.
+- Thêm host coverage cho CSRF và unauthenticated `/me`. Các mutation/business API và rate limit vẫn chưa triển khai.
+
 ## 2026-10-30 — Nền tảng đầu tiên
 
 - Thêm solution .NET 10 gồm Domain/Application/Infrastructure/Api, UnitTests/IntegrationTests và DatabaseTool.

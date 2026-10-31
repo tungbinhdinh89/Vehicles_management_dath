@@ -15,7 +15,8 @@ tests/
 ```
 
 Nền tảng backend đã được tạo. Bắt đầu tại [hướng dẫn backend](../doc/.be/README.md)
-và [hướng dẫn agent](AGENTS.md). API nghiệp vụ chưa triển khai; frontend vẫn là mock.
+và [hướng dẫn agent](AGENTS.md). Auth API đã có tại `/api/v1/auth`; các API
+nghiệp vụ vehicle/entry/plan chưa triển khai và frontend vẫn là mock.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File be/scripts/be.ps1 restore

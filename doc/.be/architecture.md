@@ -44,7 +44,7 @@ Mapping DTO thủ công; port cụ thể thêm cùng use case. `IBusinessClock` 
 - Controller → application service → domain rules → persistence port; DI ở Api.
 - Mutation khóa Account trong transaction, kiểm tra GarageRevision, tăng revision sau khi ghi.
 - Identity và Account cùng ID, Identity chỉ nằm Infrastructure. Đăng ký tạo user/account/settings atomically.
-- Cookie HttpOnly chứa session key; AuthSession lưu protected ticket/hết hạn/thu hồi. Chưa triển khai ITicketStore hoặc đăng ký Identity services.
+- Cookie HttpOnly chứa ticket; AuthSession lưu protected ticket/session ID, hết hạn và thời điểm thu hồi. Identity stores được đăng ký qua EF; mỗi request kiểm tra session server-side.
 - Persist Data Protection keys khi triển khai cookie, không commit key.
 - Không lưu nguồn tính toán thứ hai cho ODO/tổng chi/hạn/trạng thái.
 - Connection options validate lúc startup; DbContext resolve từ DI configuration cuối cùng. Logging console phù hợp container, không cần quyền Windows EventLog.

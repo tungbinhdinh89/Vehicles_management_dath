@@ -1,6 +1,6 @@
 # API contracts — thiết kế cho giai đoạn tiếp theo
 
-Chỉ health/Scalar/OpenAPI đã có HTTP endpoint. Mọi route `/api/v1` dưới đây CHƯA triển khai.
+Health/Scalar/OpenAPI và nhóm `/api/v1/auth` đã có HTTP endpoint. Các route garage/business còn lại dưới đây CHƯA triển khai.
 
 ## Quy ước
 
@@ -20,8 +20,8 @@ Chỉ health/Scalar/OpenAPI đã có HTTP endpoint. Mọi route `/api/v1` dướ
 | Method/path `/api/v1` | Input | Output |
 |---|---|---|
 | GET /auth/csrf | Không | Token, anti-forgery cookie |
-| POST /auth/register | name,email,password,phone? | Account, 201; settings true/500/30 |
-| POST /auth/login | email,password | Account + cookie, 200 |
+| POST /auth/register | name,email,password,phone? + CSRF | Account, 201; không tự login; settings true/500/30 |
+| POST /auth/login | email,password + CSRF | Account + cookie, 200 |
 | GET /auth/me | Cookie | Account hoặc 401 |
 | POST /auth/logout | Cookie + CSRF | Thu hồi session, clear cookie, 204 |
 | GET /garage | Cookie | Garage + ETag |
@@ -49,7 +49,7 @@ Session lifetime 8h không sliding; protected ticket trong AuthSession. Mọi re
 Persist Data Protection keys ngoài source; cùng key ring khi scale instance.
 CSRF cho mọi POST/PATCH/DELETE kể cả login/register/logout; CORS allowlist origin với credentials, không wildcard.
 Topology mặc định cùng site qua reverse proxy `/api`; FE dev dùng proxy, không tự SameSite=None cho mọi môi trường.
-Login lockout 5 lần/15 phút và rate limit auth phải làm cùng auth API; chưa có trong bản nền tảng.
+Login lockout 5 lần/15 phút đã cấu hình qua Identity; rate limit auth và persistent Data Protection key ring còn phụ thuộc môi trường triển khai.
 
 ```json
 {"error":{"code":"ODO_OUT_OF_SEQUENCE","message":"ODO không nhất quán với lịch sử.","fields":{"odo":"ODO ngoài khoảng hợp lệ."}}}
